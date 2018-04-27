@@ -22,7 +22,7 @@ The standard method to install packages in a Python environment is by using `pip
 
 
 Installing packages with pip is as straight-forward as
-```
+```bash
 pip install <package_name>
 ```
 We can uninstall packages with `pip uninstall` and search for them using `pip search`. The rest of the options are available through `pip help`.
@@ -56,14 +56,14 @@ Like any good software, our project must include a README file. Within, we shoul
 
 You can augment your .rst file using `Title\n====` to create titles and `.. code-block:: python` to begin highlighting Python code. You can see a live example [here](https://github.com/requests/requests/blob/master/README.rst) (use the `raw` button to see the code).
 
-Good old fashioned manual can be found [here](http://docutils.sourceforge.net/rst.html).
+For a full list of features, see the [rst documentation](http://docutils.sourceforge.net/rst.html).
 
 >Use a title and code highlightning in your README.rst.
 
 
 The `setup.py` file instructs setuptools what our distribution will include. Our distribution should include our package (and its modules), its name, its author, license, dependencies and extra instructions as needed. 
 A basic `setup.py` file will look like this
-```
+```python
 from setuptools import setup, find_packages
 setup(
     name="project_name",
@@ -113,7 +113,7 @@ This is, also, a good way to test our `setup.py`.
 
 
 To install our distribution in development mode, change directory to the distribution's root directory and use
-```
+```bash
 pip install -e .
 ``` 
 What we're doing here is asking `pip` to install under development mode using `-e` and indicating the package distribution to install is under the current directory, noted with a dot.
@@ -126,19 +126,19 @@ Start off by installing `twine` using `pip`. Twine will let us securely communic
 Create your source distribution folder using `python setup.py sdist`. This will create a `dist` folder with our distribution which we'll soon upload.
 We'll be using test.pypi.org (which purges every so often) to test publishing to PyPI and avoid affecting the real index. Register at the [PyPI test](https://test.pypi.org/account/register/).
 While in your package directory, upload your dist using
-```
+```bash
 twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 ```
 The parameter `--repository-url https://test.pypi.org/legacy/` tells twine to upload to an alternate site, the PyPI testing address. Without this parameter, it will upload to the conventional PyPI. The project will be avaialble at `https://test.pypi.org/project/<project_name>`.
 
 
 Now, you can install your package using
-```
+```bash
 pip install --index-url https://test.pypi.org/simple/ your-package
 ```
 Here, we instruct pip to use a different site rather than the default PyPI.
 You can uninstall your package (even in development mode) using
-```
+```bash
 pip uninstall package_name
 ```
 
@@ -150,7 +150,7 @@ Pyinstaller allows us to deploy standalone versions of our package. We can trans
 
 
 We'll start by installing `pyinstaller` using pip. Afterwards, if we want to turn our "main" module to an executable, we'll run the following
-```
+```bash
 pyinstaller --onefile --noconfirm path/to/our_module.py
 ```
 What this doesn is create an executable equivalent to `python our_module.py` which is standalone and doesn't require a present Python installation. The executable will be under dist/. PyInstaller also creates a build/ folder for its build files but we don't need them.

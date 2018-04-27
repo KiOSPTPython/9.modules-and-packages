@@ -2,7 +2,7 @@
 ## Modules
 Recall that any .py file is a module. A good module is one that has a suitable name, docstring and is relevant to one subject. To use a module elsewhere in code, we import it. The import operation allows us to reuse the code written in the imported module. When we import a module, the Python interpreter will begin by searching for it under previously imported modules, built in modules and, ultimately, path based modules. The module we'll be using will be found by the path based import.
 
->Create a program that prints to screen whatever is given to it through the CLI. Split it into two modules. One will parse the CLI arguments and the other will perform the printing. If no argument is given, it should print "Modules modules modules".
+>Create a program that prints to screen whatever is given to it through the CLI. Split it into two modules.
 
 ## Packages
 If a module is a .py file then a package is a directory containing one or more modules and zero or more subpackages (those subpackages are packages on their own). Once a project grows to a large scale, it becomes easier to maintain and develop using several modules instead of one large module (.py file). When this happens, and it is comprised of several modules, the project can be referred to as a package. A large project can be split into multiple smaller packages/projects that, in turn, can each be useful on their own. But, that is a versatility that we won't use, for now. Just know that it exists. To enable traversal to the package directory when importing from it, it must contain an `__init__.py` file. 

@@ -56,7 +56,7 @@ Like any good software, our project must include a README file. Within, we shoul
 
 You can augment your .rst file using `Title\n====` to create titles and `.. code-block:: python` to begin highlighting Python code. You can see a live example [here](https://github.com/requests/requests/blob/master/README.rst) (use the `raw` button to see the code).
 
-Good old fashioned manual can be found here `http://docutils.sourceforge.net/rst.html`.
+Good old fashioned manual can be found [here](http://docutils.sourceforge.net/rst.html).
 
 >Use a title and code highlightning in your README.rst.
 
@@ -105,7 +105,7 @@ Most keywords are self explanatory such as name, version, author, author_email, 
 
 >Create your own `setup.py` using the above template. 
 
-For more details about setuptools, see `https://setuptools.readthedocs.io/en/latest/setuptools.html`.
+For more details see the [setuptools manual](https://setuptools.readthedocs.io/en/latest/setuptools.html).
 
 ## Installing and distributing
 While we develop, we don't want to constantly install/uninstall our distribution after every change we make to our code. Instead, we want to see our changes take effect immediately, for testing purposes. To avoid this back and forth game, `pip` gives us the option to install a package in development mode. This allows us to continue coding without reinstalling our package each time we make a change. Using development mode only creates a link to our package so every update we do to the code is immediately reflected in use.
@@ -124,12 +124,12 @@ What we're doing here is asking `pip` to install under development mode using `-
 Publishing to PyPI requires we register on PyPI's site, create a source distribution and then upload it using our credentials. 
 Start off by installing `twine` using `pip`. Twine will let us securely communicate with PyPI using HTTPS, hiding our credentials from plain sight. Setuptools can also upload to PyPI but, it uses HTTP.
 Create your source distribution folder using `python setup.py sdist`. This will create a `dist` folder with our distribution which we'll soon upload.
-We'll be using test.pypi.org (which purges every so often) to test publishing to PyPI and avoid affecting the real index. Register at https://test.pypi.org/account/register/.
+We'll be using test.pypi.org (which purges every so often) to test publishing to PyPI and avoid affecting the real index. Register at the [PyPI test](https://test.pypi.org/account/register/).
 While in your package directory, upload your dist using
 ```
 twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 ```
-The parameter `--repository-url https://test.pypi.org/legacy/` tells twine to upload to an alternate site, the PyPI testing address. Without this parameter, it will upload to the conventional PyPI. The project will be avaialble at https://test.pypi.org/project/<project_name>
+The parameter `--repository-url https://test.pypi.org/legacy/` tells twine to upload to an alternate site, the PyPI testing address. Without this parameter, it will upload to the conventional PyPI. The project will be avaialble at `https://test.pypi.org/project/<project_name>`.
 
 
 Now, you can install your package using

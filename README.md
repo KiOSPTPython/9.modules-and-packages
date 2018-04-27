@@ -54,7 +54,7 @@ Like any good software, our project must include a README file. Within, we shoul
 
 >Create a README.rst file with the docstring of your program above.
 
-You can augment your .rst file using `Title\n====` to create titles and `.. code-block:: python` to begin highlighting Python code. You can see a live example here `https://github.com/requests/requests/blob/master/README.rst` (use the `raw` button to see the code).
+You can augment your .rst file using `Title\n====` to create titles and `.. code-block:: python` to begin highlighting Python code. You can see a live example [here](https://github.com/requests/requests/blob/master/README.rst) (use the `raw` button to see the code).
 
 Good old fashioned manual can be found here `http://docutils.sourceforge.net/rst.html`.
 

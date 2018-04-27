@@ -1,10 +1,10 @@
-#Modules, packages and friends
-##Modules
+# Modules, packages and friends
+## Modules
 Recall that any .py file is a module. A good module is one that has a suitable name, docstring and is relevant to one subject. To use a module elsewhere in code, we import it. The import operation allows us to reuse the code written in the imported module. When we import a module, the Python interpreter will begin by searching for it under previously imported modules, built in modules and, ultimately, path based modules. The module we'll be using will be found by the path based import.
 
 >Create a program that prints to screen whatever is given to it through the CLI. Split it into two modules. One will parse the CLI arguments and the other will perform the printing. If no argument is given, it should print "Modules modules modules".
 
-##Packages
+## Packages
 If a module is a .py file then a package is a directory containing one or more modules and zero or more subpackages (those subpackages are packages on their own). Once a project grows to a large scale, it becomes easier to maintain and develop using several modules instead of one large module (.py file). When this happens, and it is comprised of several modules, the project can be referred to as a package. A large project can be split into multiple smaller packages/projects that, in turn, can each be useful on their own. But, that is a versatility that we won't use, for now. Just know that it exists. To enable traversal to the package directory when importing from it, it must contain an `__init__.py` file. 
 
 >Create a `__init__.py` file in the root of your project. Inside, write a short docstring that introduces your program to the world and include a simple usage example with input and output.
@@ -17,7 +17,7 @@ When a package is installed, the resources it exposes in its `__init__.py` will 
 >Import your function that does the bulk of the work in your module within `__init__.py`. 
 >Test your `__init__.py` file by importing your package while outside the root of it and using your exposed function.
 
-##Pip Installs Packages
+## Pip Installs Packages
 The standard method to install packages in a Python environment is by using `pip`. When we install things manually or, worse, just dump a package and import from it, we risk breaking things. Either the package itself by not providing it with its dependencies or our own project when managing our library usages quickly gets out of hand. Instead, `pip` installs packages gracefully by, most importantly, handling dependencies and their versions for us. By using `pip`, we can also avoid literring the system Python installation with various packages with the `--user` flag (most relevant if we're using Linux). But, as we're using `venv` to create isolated Python environments, we don't need to concern ourselves with that.
 
 
@@ -29,7 +29,7 @@ We can uninstall packages with `pip uninstall` and search for them using `pip se
 
 >Install the `requests` package to your `venv` environment. Use `which pip` to ensure you're using your isolated environment's `pip`.
 
-##Using setuptools for distribution
+## Using setuptools for distribution
 The distribution of our work is basically a packed version of our project. This packed version can, later, be used with `pip` to install  into a new Python enviornment. Using this method, we can safely install our package elsewhere or, in other words, port it. The distribution setup information includes some key information such as dependencies, its name, version, author and license. The setuptools utility helps us create such a distribution.
 
 
@@ -107,7 +107,7 @@ Most keywords are self explanatory such as name, version, author, author_email, 
 
 For more details about setuptools, see `https://setuptools.readthedocs.io/en/latest/setuptools.html`.
 
-##Installing and distributing
+## Installing and distributing
 While we develop, we don't want to constantly install/uninstall our distribution after every change we make to our code. Instead, we want to see our changes take effect immediately, for testing purposes. To avoid this back and forth game, `pip` gives us the option to install a package in development mode. This allows us to continue coding without reinstalling our package each time we make a change. Using development mode only creates a link to our package so every update we do to the code is immediately reflected in use.
 This is, also, a good way to test our `setup.py`.
 
@@ -145,7 +145,7 @@ pip uninstall package_name
 
 Once you work on your own project and wish to upload it to PyPI, remember to remove the testing URL from `twine` and `pip`. Both will default to work with pypi.org.
 
-##PyInstaller
+## PyInstaller
 Pyinstaller allows us to deploy standalone versions of our package. We can transfer it between machines and not have to worry about an installation process (such as `pip`). The only requirement is that the OS and architecture match the one it was prepared on. If we want to run it on a different OS or architecture, we'll have to prepare our standalone program, using pyinstaller, on that combination of OS and architecture. Most Windows flavors are interchangable but assert your deployment with a test.
 
 
